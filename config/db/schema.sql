@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS concert_db;
-CREATE DATABASE concert_db;
+DROP DATABASE IF EXISTS plant_db;
+CREATE DATABASE plant_db;

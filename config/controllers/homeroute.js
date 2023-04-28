@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Music } = require('../models');
+const { User, Plant } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -20,9 +20,9 @@ router.get('/', withAuth, async (req, res) => {
 
   router.get('/:id', withAuth, async (req, res) => {
     try {
-        const oneProject = await Project.findByPk(req.params.id, {
+        const onePlant = await Plant.findByPk(req.params.id, {
         });
-        res.status(200).json(oneProject);
+        res.status(200).json(onePlant);
         } catch (err) {
           res.status(500).json(err);
         }
