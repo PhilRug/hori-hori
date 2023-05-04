@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+const Pins = {};
+
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -59,3 +61,4 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
+
