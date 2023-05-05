@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Plant } = require('../models');
+const { User, Plant, Pin } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -18,14 +18,23 @@ router.get('/', async (req, res) => {
     }
   });
 
-  router.get('/:id', withAuth, async (req, res) => {
-    try {
-        const onePlant = await Plant.findByPk(req.params.id, {
-        });
-        res.status(200).json(onePlant);
-        } catch (err) {
-          res.status(500).json(err);
-        }
-      });
+  // router.get('/:id', withAuth, async (req, res) => {
+  //   try {
+  //       const onePlant = await Plant.findByPk(req.params.id, {
+  //       });
+  //       res.status(200).json(onePlant);
+  //       } catch (err) {
+  //         res.status(500).json(err);
+  //       }
+  //     });
+
+  router.get('/login', (req, res) => {
+  // pick where to redirect when logged in
+  if (req.session.logged_in) {
+    res.redirect('/homepage');
+    return;
+  }
+  res.render('login');
+});
 
 module.exports = router;

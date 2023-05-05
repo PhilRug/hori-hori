@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-
-const Pins = {};
+const { Pin } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
@@ -60,5 +59,14 @@ router.post('/logout', (req, res) => {
   }
 });
 
+// router.get('/login', (req, res) => {
+//   // pick where to redirect when logged in
+//   if (req.session.logged_in) {
+//     res.redirect('/');
+//     return;
+//   }
+
+//   res.render('login');
+// });
 module.exports = router;
 

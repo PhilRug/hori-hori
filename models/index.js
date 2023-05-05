@@ -4,7 +4,7 @@ const Pin = require('./Pin');
 
 //User-Plant Associations (not even sure if this is needed with pin)
 //other option is make a strictly intermediary model named UserPlant
-User.hasMany(Plant, {
+User.belongsToMany(Plant, {
   through: {
     model: Pin,
     foreignKey: 'user_id'
@@ -24,9 +24,11 @@ Pin.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-User.hasMany(Pin, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+User.belongsToMany(Pin, {
+  through: {
+    model: Pin,
+    foreignKey: 'user_id',
+  }
 });
 
 //Pin-Plant Associations
@@ -36,9 +38,12 @@ Pin.belongsTo(Plant, {
 })
 
 //plant can have many pins
-Plant.hasMany(Pin, {
-  foreignKey: 'plant_id',
-  onDelete: 'CASCADE'
+Plant.belongsToMany(Pin, {
+  through: {
+    model: Pin,
+    foreignKey: 'plant_id'
+  }
 })
 
 module.exports = { User, Plant, Pin };
+
