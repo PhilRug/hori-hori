@@ -1,6 +1,13 @@
-// const router = require('express').Router();
-// const { User, Plant, Pin } = require('../../models');
-// const withAuth = require('../../utils/auth');
+const router = require('express').Router();
+// const { User, Plant, Pin } = require('../models');
+const withAuth = require('../utils/auth');
+
+// Route for protected dashboard page
+//add authentication after
+router.get('/', (req, res) => {
+  console.log('route hit');
+  res.render('dashboard');
+});
 
 // router.get('/map', (req, res) => {
 //     // try {
