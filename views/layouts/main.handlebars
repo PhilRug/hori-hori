@@ -13,11 +13,17 @@
     <h1 class="title">
       Hori Hori
     </h1>
+    <nav>
+      <button class="btn" id="login">Login</button>
+    </nav>
     {{#if logged_in}}
     <nav>
-      <button class="btn" id="logout">logout</button>
+      <button class="btn" id="logout">Logout</button>
     </nav>
     {{/if}}
+    <nav>
+      <button class="btn" id="signup">Sign Up</button>
+    </nav>
   </header>
   <main class="container container-fluid mt-5">
     {{{ body }}}

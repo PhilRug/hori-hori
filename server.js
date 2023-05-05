@@ -21,6 +21,7 @@ const sess = {
 
 app.use(session(sess));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/images", express.static(path.join(__dirname, "/public/img")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const hbs = exphbs.create();
