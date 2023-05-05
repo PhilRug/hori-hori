@@ -46,3 +46,4 @@ Plant.belongsToMany(Pin, {
 })
 
 module.exports = { User, Plant, Pin };
+
