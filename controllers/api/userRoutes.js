@@ -1,9 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const { Pin } = require('../../models');
 
-const Pins = {};
-
-router.post('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -60,5 +59,14 @@ router.post('/logout', (req, res) => {
   }
 });
 
+// router.get('/login', (req, res) => {
+//   // pick where to redirect when logged in
+//   if (req.session.logged_in) {
+//     res.redirect('/');
+//     return;
+//   }
+
+//   res.render('login');
+// });
 module.exports = router;
 
