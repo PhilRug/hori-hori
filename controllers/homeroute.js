@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Plant, Pin } = require('../models');
 const withAuth = require('../utils/auth');
+const bcrypt = require('bcrypt');
 
 router.get('/', async (req, res) => {
     try {
@@ -36,13 +37,13 @@ router.get('/', async (req, res) => {
     res.render('login');
   });
   
-  router.get('/signup', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/dashboard');
-      return;
-    }
+  // router.get('/signup', (req, res) => {
+  //   if (req.session.loggedIn) {
+  //     res.redirect('/login');
+  //     return;
+  //   }
   
-    res.render('signup');
-  });
+  //   res.render('signup');
+  // });
   
   module.exports = router;
