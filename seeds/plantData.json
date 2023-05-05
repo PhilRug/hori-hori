@@ -1,6 +1,3 @@
-const { Plant } = require('../models');
-
-const userdata =
 [
   {
     "name": "poison ivy",
@@ -13,12 +10,5 @@ const userdata =
   {
     "name": "japanese knotweed",
     "description": "plant straight out of avatar"    
-  },
-];
-
-const seedPlant = () => Plant.bulkCreate(userdata, {
-  individualHooks: true,
-  returning: true,
-});
-
-module.exports = seedPlant;
+  }
+]
