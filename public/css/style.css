@@ -78,6 +78,18 @@ nav {
   align-items: center;
 }
 
+.welcome {
+  text-align: center;
+  padding-top: 170px;
+  font-size: 30px;
+}
+
 .login-title {
   text-align: center;
+}
+
+.dash-btn {
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 10%;
 }
