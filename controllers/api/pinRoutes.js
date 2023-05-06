@@ -27,4 +27,21 @@ router.get('/map', (req, res) => {
 //     });
 // });
 
+// define a route to handle POST requests to create a new pin
+router.post('/pins', async (req, res) => {
+  try {
+    // create a new pin object using the data from the request body
+    const pin = await Pin.create(req.body);
+
+    // send a JSON response indicating success and including the new pin's data
+    res.status(201).json({ success: true, pin: pin });
+  } catch (error) {
+    // if there was an error, send a JSON response indicating failure
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// export the router so it can be mounted in the app
+module.exports = router;
+
 module.exports = router;
