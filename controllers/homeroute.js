@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { User, Plant } = require('../models');
+const { User, Plant, Pin } = require('../models');
 const withAuth = require('../utils/auth');
+const bcrypt = require('bcrypt');
 
 router.get('/', async (req, res) => {
     try {
@@ -18,14 +19,31 @@ router.get('/', async (req, res) => {
     }
   });
 
-  router.get('/:id', withAuth, async (req, res) => {
-    try {
-        const onePlant = await Plant.findByPk(req.params.id, {
-        });
-        res.status(200).json(onePlant);
-        } catch (err) {
-          res.status(500).json(err);
-        }
-      });
+  // router.get('/:id', withAuth, async (req, res) => {
+  //   try {
+  //       const onePlant = await Plant.findByPk(req.params.id, {
+  //       });
+  //       res.status(200).json(onePlant);
+  //       } catch (err) {
+  //         res.status(500).json(err);
+  //       }
+  //     });
 
-module.exports = router;
+  router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+    res.render('login');
+  });
+  
+  // router.get('/signup', (req, res) => {
+  //   if (req.session.loggedIn) {
+  //     res.redirect('/login');
+  //     return;
+  //   }
+  
+  //   res.render('signup');
+  // });
+  
+  module.exports = router;
