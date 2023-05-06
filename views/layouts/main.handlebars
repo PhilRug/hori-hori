@@ -8,23 +8,17 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1 class="title">
-      Hori Hori
-    </h1>
-    {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    {{/if}}
-  </header>
+<body id="homepage">
+  
   <main class="container container-fluid mt-5">
     {{{ body }}}
   </main>
- 
+
+  
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
+  {{else}}
+  <script src="/js/login.js"></script>
   {{/if}}
 </body>
 

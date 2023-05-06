@@ -1,4 +1,20 @@
-<div>
-    <div id="banner"></div>
-    <h3>What We Do</h3>    
+<div class="container">
+        <h1 class="title">
+          Hori Hori
+        </h1>        
+    </div>
+
+<div>    
+    <h3 class="intro-title">What We Do</h3> 
+        <div class="intro-text">
+            <p>We monitor the location and growth of invasive species of plants.</p>
+            <p>With your help we can keep this troublesome foliage out of our gardens!</p>   
+        </div>
+    <nav>
+        <button class="btn" id="login"><a href="/login">Login</a></button>
+        {{#if logged_in}}
+        <button class="btn" id="logout"> Logout </button>
+        {{/if}}
+        <button class="btn" id="signup"><a href="/login">Sign Up</a></button>
+    </nav>
 </div>
