@@ -10,11 +10,11 @@
             <p>We monitor the location and growth of invasive species of plants.</p>
             <p>With your help we can keep this troublesome foliage out of our gardens!</p>   
         </div>
-    <nav class='row'>
-        <button class="btn" id="login"><a href="{{'login.handlebars'}}">Login</a></button>
+    <nav>
+        <button class="btn" id="login"><a href="/login">Login</a></button>
         {{#if logged_in}}
         <button class="btn" id="logout"> Logout </button>
         {{/if}}
-        <button class="btn" id="signup"> Sign Up </button>
+        <button class="btn" id="signup"><a href="/login">Sign Up</a></button>
     </nav>
 </div>

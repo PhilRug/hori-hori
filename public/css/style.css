@@ -64,3 +64,20 @@ nav {
   padding: 5px;
   
 }
+
+.login-form,
+.signup-form {
+  margin-top: 270px;
+  padding: 20px;
+  
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-title {
+  text-align: center;
+}
