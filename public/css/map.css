@@ -1,0 +1,13 @@
+button {
+    margin-bottom: 2rem;
+}
+
+#map {
+    background-image: none;
+    height: 25rem;
+    width: 40rem;
+   margin: 3rem;
+   display: flex;
+   justify-content: center;
+}
+
