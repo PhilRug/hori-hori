@@ -4,4 +4,11 @@
             <p>We monitor the location and growth of invasive species of plants.</p>
             <p>With your help we can keep this troublesome foliage out of our gardens!</p>   
         </div>
+    <nav class='row'>
+        <button class="btn" id="login">Login</button>
+        {{#if logged_in}}
+        <button class="btn" id="logout"> Logout </button>
+        {{/if}}
+        <button class="btn" id="signup"> Sign Up </button>
+    </nav>
 </div>
