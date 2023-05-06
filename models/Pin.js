@@ -19,13 +19,28 @@ Pin.init(
             type: DataTypes.FLOAT,
             allowNull: false
         },
-        //import user id and import plan information
-        plant_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'plant',
-                key: 'id',
-            },
+        // //import user id and import plan information
+        // plant_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'plant',
+        //         key: 'id',
+        //     },
+        // },
+        plant: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            // references: {
+            //     model: 'plant',
+            //     key: 'name',
+            // },
+        },
+        description: {
+            type: DataTypes.STRING,
+            // references: {
+            //     model: 'plant',
+            //     key: 'description',
+            // },
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -34,6 +49,11 @@ Pin.init(
                 key: 'id',
             },
         },
+        date_created: {
+            type: DataTypes.DATE,
+            // allowNull: false,
+            defaultValue: DataTypes.NOW,
+          },
     },
     {
         sequelize,

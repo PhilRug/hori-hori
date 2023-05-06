@@ -27,7 +27,7 @@ router.post('/login', async (req, res) => {
   req.session.userId = user.id;
 
   // Redirect the user to the home page --this needs to change to dashboard/map
-  res.redirect('/');
+  res.redirect('/dashboard');
 });
 
 //this will be for creating user data once we get there
