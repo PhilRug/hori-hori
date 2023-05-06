@@ -19,16 +19,7 @@ router.get('/', async (req, res) => {
     }
   });
 
-  // router.get('/:id', withAuth, async (req, res) => {
-  //   try {
-  //       const onePlant = await Plant.findByPk(req.params.id, {
-  //       });
-  //       res.status(200).json(onePlant);
-  //       } catch (err) {
-  //         res.status(500).json(err);
-  //       }
-  //     });
-
+  
   router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
       res.redirect('/');
@@ -38,12 +29,22 @@ router.get('/', async (req, res) => {
   });
   
   // router.get('/signup', (req, res) => {
-  //   if (req.session.loggedIn) {
-  //     res.redirect('/login');
-  //     return;
-  //   }
-  
-  //   res.render('signup');
-  // });
-  
+    //   if (req.session.loggedIn) {
+      //     res.redirect('/login');
+      //     return;
+      //   }
+      
+      //   res.render('signup');
+      // });
+      
+      // router.get('/:id', withAuth, async (req, res) => {
+      //   try {
+      //       const onePlant = await Plant.findByPk(req.params.id, {
+      //       });
+      //       res.status(200).json(onePlant);
+      //       } catch (err) {
+      //         res.status(500).json(err);
+      //       }
+      //     });
+      
   module.exports = router;
