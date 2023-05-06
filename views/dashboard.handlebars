@@ -1,24 +1,20 @@
 <div class="dashboard">
-  <h2>Welcome to Your Dashboard!</h2>
-    <h3 class="intro-title">What We Do</h3> 
-        <div class="intro-text">
-            <p>We monitor the location and growth of invasive species of plants.</p>
-            <p>With your help we can keep this troublesome foliage out of our gardens!</p>   
-        </div>
-    {{!-- <nav class='row'>
-        <button class="btn" id="login"><a href="{{'login.handlebars'}}">Login</a></button>
-        {{#if logged_in}}
-        <button class="btn" id="logout"> Logout </button>
-    </nav> --}}
+  <h2 class="welcome">Welcome to Your Dashboard {{user}}!</h2>             
     <div class="pins-history">
-    <ul>
-    {{!-- {{#each pins}} --}}
-    {{!-- <li>
-      <h2>{{plant_id}}</h2>
-      <p>{{description}}</p>
-    </li> --}}
-    {{!-- {{/each}}  --}}
-  </ul>
-  </div>
-   <a href="/api/map">Add Pin</a>
+      <ul>
+        {{#each pins}}
+        {{!-- <li>
+          <h2>{{plant_id}}</h2>
+          <p>{{description}}</p>
+        </li> --}}
+        {{/each}} 
+      </ul>
+    </div>
+    <footer>
+      <nav class='row'>        
+        <button class="dash-btn" id="add-pin"><a href="/map">Add Pin</a></button>
+        <button class="dash-btn" id="logout"> Logout </button>
+      </nav>
+    </footer>
 </div>
+<script src="/js/logout.js"></script>

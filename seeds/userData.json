@@ -1,16 +1,16 @@
 [
   {
-    "name": "frank",
+    "username": "frank",
     "email": "warthog@aol.com",
     "password": "paddyspub"
   },
   {
-    "name": "charlie",
+    "username": "charlie",
     "email": "ratking@hotmail.com",
     "password": "paddyspub"  
   },
   {
-    "name": "dee",
+    "username": "dee",
     "email": "birdgirl@msn.com",
     "password": "paddyspub"   
   }

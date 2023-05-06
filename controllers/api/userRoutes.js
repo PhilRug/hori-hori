@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
       username,
       email,
       password: hashedPassword
-    })
+    })    
     .then(dbUserData => res.json(dbUserData))
     // console.log('New user created:', user);
 
