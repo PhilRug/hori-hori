@@ -20,9 +20,12 @@
   <main class="container container-fluid mt-5">
     {{{ body }}}
   </main>
- 
+
+  
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
+  {{else}}
+  <script src="/js/login.js"></script>
   {{/if}}
 </body>
 
