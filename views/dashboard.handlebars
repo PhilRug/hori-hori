@@ -5,20 +5,20 @@
             <p>We monitor the location and growth of invasive species of plants.</p>
             <p>With your help we can keep this troublesome foliage out of our gardens!</p>   
         </div>
-    <nav class='row'>
+    {{!-- <nav class='row'>
         <button class="btn" id="login"><a href="{{'login.handlebars'}}">Login</a></button>
         {{#if logged_in}}
         <button class="btn" id="logout"> Logout </button>
-    </nav>
+    </nav> --}}
     <div class="pins-history">
     <ul>
-    {{#each pins}}
+    {{!-- {{#each pins}} --}}
     {{!-- <li>
       <h2>{{plant_id}}</h2>
       <p>{{description}}</p>
     </li> --}}
-    {{/each}} 
+    {{!-- {{/each}}  --}}
   </ul>
   </div>
-   <a href="/map">Add Pin</a>
+   <a href="/api/map">Add Pin</a>
 </div>

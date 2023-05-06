@@ -1,11 +1,10 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
 const { Pin } = require('../../models');
 
 //GOAL - we need to write an api route that our front end can call to get pin locations to put on a map. 
 
 //test route to see if we can render partial for map
-router.get('/', (req, res) => {
+router.get('/map', (req, res) => {
     console.log('map route hit');
     res.render('map');
   });
