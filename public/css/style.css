@@ -5,9 +5,10 @@
     --banner: 
 }
 
-* {
-    box-sizing: border-box;
-  }
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
 #homepage {    
     background-image: url('/img/plant-banner.png');
@@ -75,7 +76,7 @@ nav {
 .row {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
 }
 
 .welcome {
@@ -91,5 +92,10 @@ nav {
 .dash-btn {
   padding: 5px;
   border-radius: 5px;
-  bottom: 10%;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+footer {
+  flex-shrink: 0;
 }
