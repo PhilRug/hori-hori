@@ -23,22 +23,36 @@ function getUserLocation() {
 let map;
 
 function initMap({ latitude, longitude }) {
-console.log(latitude, longitude)
+  console.log(latitude, longitude)
   const map = L.map("map").setView([latitude, longitude], 17);
-console.log(map);
+  console.log(map);
   L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', {
-    attribution: "Map data © <a href='https://opentopomap.org/'>OpenTopoMap</a> contributors"+
-    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    attribution: "Map data © <a href='https://opentopomap.org/'>OpenTopoMap</a> contributors" +
+      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 25,
   }).addTo(map);
 
   // Add a marker and bind a popup
   var marker = L.marker([51.5, -0.1]).addTo(map);
 
-var form = document.createElement("form");
-form.innerHTML = `
+  var form = document.createElement("form");
+  form.innerHTML = `
     <label for="plantName">Plant Name:</label>
-    <input type="text" id="plantName" name="plantName" required autocomplete="on">
+    <input type="text" id="plantName" name="plantName" required autocomplete="on" list="plants">
+    <datalist id="plants">
+      <option value="Kudzu">
+      <option value="Japanese Knotweed">
+      <option value="Garlic Mustard">
+      <option value="Purple Loosestrife">
+      <option value="Multiflora Rose">
+      <option value="Tree-of-Heaven">
+      <option value="Reed Canary Grass">
+      <option value="Giant Hogweed">
+      <option value="English Ivy">
+      <option value="Japanese Honeysuckle">
+      <option value="Mile-a-Minute Vine">
+      <option value="Japanese Stiltgrass">
+  </datalist>
     <br>
     <label for="description">Description:</label>
     <textarea id="description" name="description" required></textarea>
@@ -46,9 +60,25 @@ form.innerHTML = `
     <button type="submit">Submit</button>
 `;
 
-// Bind the form to the marker's popup
-marker.bindPopup(form).openPopup();
+  // Bind the form to the marker's popup
+  marker.bindPopup(form).openPopup();
+
+  // add event listener to form submission
+  form.addEventListener("submit", onPopupSubmit);
 };
+
+// function to handle form submission
+function onPopupSubmit(event) {
+  //prevent refresh
+  event.preventDefault();
+  const plantName = document.getElementById("plantName").value;
+  const description = document.getElementById("description").value;
+  console.log(`Plant name: ${plantName}, Description: ${description}`);
+  //reset form and close pop up on submit
+  //might want to show a picture instead
+  event.target.reset(); // reset the form fields
+  // add code to handle form submission here
+}
 
 // // Update the Plant Name property when the input field changes
 // form.querySelector("#plantName").addEventListener("input", function(event) {
@@ -90,14 +120,14 @@ marker.bindPopup(form).openPopup();
 
 // event listener for when user clicks "Share Location" button
 function onShareLocationClick() {
-    getUserLocation()
+  getUserLocation()
     .then(location => {
       initMap(location);
       console.log("User location:", location);
     })
-   .catch (error => {
-    console.error("Error getting user location:", error);
-  });
+    .catch(error => {
+      console.error("Error getting user location:", error);
+    });
 };
 
 document.getElementById("share-location-btn").addEventListener("click", onShareLocationClick);
