@@ -64,8 +64,8 @@ function initMap({ latitude, longitude }) {
   marker.bindPopup(form).openPopup();
 
   // add event listener to form submission
-  form.addEventListener("submit", onPopupSubmit);
-};
+  form.addEventListener('submit', onPopupSubmit);
+}
 
 // function to handle form submission
 function onPopupSubmit(event) {
