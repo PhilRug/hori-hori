@@ -47,7 +47,7 @@ form.innerHTML = `
 `;
 
 // Bind the form to the marker's popup
-marker.bindPopup(form);
+marker.bindPopup(form).openPopup();
 };
 
 // // Update the Plant Name property when the input field changes
