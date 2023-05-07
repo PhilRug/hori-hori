@@ -131,3 +131,6 @@ function onShareLocationClick() {
 };
 
 document.getElementById("share-location-btn").addEventListener("click", onShareLocationClick);
+document.getElementById("goBack").addEventListener("click", function() {
+  window.location.href = "/dashboard";
+});

@@ -4,10 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint",
     "start": "node server.js",
     "seed": "node seeds/seed.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "lint": "npx eslint **/*.js --quiet"
   },
   "keywords": [],
   "author": "",
@@ -19,12 +20,13 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.3",
+    "lint": "^0.8.19",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.22",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
-    "eslint": "^7.12.1",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^6.15.0",
     "prettier": "^2.1.2"
   }
