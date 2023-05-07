@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
   try {
     // Create a new Plant record in the database using the form data
     const pin = await Pin.create({
-      plant: req.body.plantName,
+      plant: req.body.plant,
       description: req.body.description,
       latitude: req.body.latitude,
       longitude: req.body.longitude
