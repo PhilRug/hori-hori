@@ -12,3 +12,10 @@ const logout = async () => {
 };
 
 document.querySelector('#logout').addEventListener('click', logout);
+
+function addPin() {
+  window.location.href = '/map';
+}
+document
+  .querySelector('.add')
+  .addEventListener('click', addPin);

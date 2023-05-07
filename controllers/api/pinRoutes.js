@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Pin } = require('../../models');
 
-//GOAL - we need to write an api route that our front end can call to get pin locations to put on a map. 
+//GOAL - we need to write an api route that our front end can call to get pin locations to put on a map.
 
 // Add a new POST route to handle form submissions
 //add authentication
@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
 
     // Send a success response to the client
     res.status(201).json({ success: true, pin: pin });
-    console.log('success')
+    console.log('success');
   } catch (err) {
     // Handle errors and send an error response to the client
     console.error(err);
@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
   try {
     // Retrieve all Pin records from the database
     const pins = await Pin.findAll();
-    
+
     // Send the Pin records to the client
     res.json(pins);
   } catch (err) {
@@ -50,7 +50,7 @@ module.exports = router;
 //     //OPTION 1: do a findAll
 //     // const pinsData = await Pin.findAll({
 //     //     where: {
-//     //         //create a "distance constraint" that uses latitude and longitude variables 
+//     //         //create a "distance constraint" that uses latitude and longitude variables
 //     //     }
 //     // });
 //     //OPTION 2: do a sequelize literal (this one may be way easier because distance constraints are hard to write in sequelize)
