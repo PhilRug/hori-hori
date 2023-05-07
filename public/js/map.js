@@ -68,16 +68,43 @@ function initMap({ latitude, longitude }) {
 };
 
 // function to handle form submission
-function onPopupSubmit(event) {
+async function onPopupSubmit(event) {
   //prevent refresh
   event.preventDefault();
   const plantName = document.getElementById("plantName").value;
   const description = document.getElementById("description").value;
   console.log(`Plant name: ${plantName}, Description: ${description}`);
+
+  // Get the current location from the map
+  const { lat, lng } = map.getCenter();
+
+  // Send the form data to the server
+  try {
+    const response = await fetch('/api/pins', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        plantName: plantName,
+        description: description,
+        latitude: lat,
+        longitude: lng
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to add pin');
+    }
   //reset form and close pop up on submit
   //might want to show a picture instead
   event.target.reset(); // reset the form fields
-  // add code to handle form submission here
+  // Reload the pins on the map
+  await loadPins();
+} catch (err) {
+  console.error(err);
+  alert('Failed to add pin');
+}
 }
 
 // // Update the Plant Name property when the input field changes
