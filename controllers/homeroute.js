@@ -3,6 +3,7 @@ const { User, Plant, Pin } = require('../models');
 const withAuth = require('../utils/auth');
 const bcrypt = require('bcrypt');
 
+//homepage route
 router.get('/', async (req, res) => {
     try {
       const userData = await User.findAll({
@@ -19,7 +20,7 @@ router.get('/', async (req, res) => {
     }
   });
 
-  
+  //login route
   router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
       res.redirect('/');
@@ -28,23 +29,29 @@ router.get('/', async (req, res) => {
     res.render('login');
   });
   
-  // router.get('/signup', (req, res) => {
-    //   if (req.session.loggedIn) {
-      //     res.redirect('/login');
-      //     return;
-      //   }
+  //route for each pin to render as a map
+    router.get('/pins/:id', async (req, res) => { 
+    try {
       
-      //   res.render('signup');
-      // });
+      // find the pin by id
+      const pinData = await Pin.findByPk(req.params.id);
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ['name'],
+      //   },
+      // ],
       
-      // router.get('/:id', withAuth, async (req, res) => {
-      //   try {
-      //       const onePlant = await Plant.findByPk(req.params.id, {
-      //       });
-      //       res.status(200).json(onePlant);
-      //       } catch (err) {
-      //         res.status(500).json(err);
-      //       }
-      //     });
+      const pin = pinData.get({ plain: true });
       
+      res.render('pin', {
+        ...pin,
+        // logged_in: req.session.logged_in
+        })
+      } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+      }
+    });
+
   module.exports = router;

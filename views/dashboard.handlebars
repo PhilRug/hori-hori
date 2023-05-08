@@ -1,20 +1,25 @@
 <div class="dashboard">
-  <h2 class="welcome">Welcome to Your Dashboard {{user.username}}!</h2>             
-    <div class="pins-history">
-      <ul>
-        {{#each pins}}
-        {{!-- <li>
-          <h2>{{plant_id}}</h2>
-          <p>{{description}}</p>
-        </li> --}}
-        {{/each}} 
-      </ul>
-    </div>
-    <footer>
-      <nav class='row'>        
-        <button class="dash-btn" id="add-pin"><a href="/map">Add Pin</a></button>
-        <button class="dash-btn" id="logout"> Logout </button>
-      </nav>
-    </footer>
+  <h2 class="welcome">Welcome to Your Dashboard {{user.username}}!</h2>
+  <div class="pins-history">
+    <h3>Pins History</h3>
+    <ul>
+         {{#each pins as |pin| }}
+      <li>
+      <div class="card">
+        <div class="card-body">
+          <a href="/pins/{{pin.id}}" class="btn btn-primary">{{pin.plant}}</a>
+          <p class="card-text">{{pin.description}}</p>
+        </div>
+      </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <footer>
+    <nav class='row'>
+      <button class="dash-btn" id="add-pin"><a href="/map">Add Pin</a></button>
+      <button class="dash-btn" id="logout"> Logout </button>
+    </nav>
+  </footer>
 </div>
 <script src="/js/logout.js"></script>

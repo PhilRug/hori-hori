@@ -100,54 +100,19 @@ async function onPopupSubmit(event, latitude, longitude) {
     if (!response.ok) {
       throw new Error('Failed to add pin');
     }
-  //reset form and close pop up on submit
-  //might want to show a picture instead
-  event.target.reset(); // reset the form fields
-  // Reload the pins on the map
-  // await loadPins();
+
+    //SHOW PICTURE TO VERIFY PLANT?
+    
+    //reset form and close pop up on submit
+  event.target.reset();
+  
+  // FIND A WAY TO REDIRECT TO DASHBOARD, WHERE PINS WILL BE SHOWN
+
 } catch (err) {
   console.error(err);
   alert('Failed to add pin');
 }
 }
-
-// // Update the Plant Name property when the input field changes
-// form.querySelector("#plantName").addEventListener("input", function(event) {
-//   var input = event.target;
-//   marker.options.PlantName = input.value;
-// });
-
-// // Log the form input values when the form is submitted
-// form.addEventListener("submit", function(event) {
-//   event.preventDefault(); // prevent the default form submission
-//   var plantNameInput = form.querySelector("#plantName");
-//   var descriptionInput = form.querySelector("#description");
-//   console.log("Plant Name: " + plantNameInput.value);
-//   console.log("Description: " + descriptionInput.value);
-// });
-
-//add autofill or datalist element
-//image of the plant
-
-
-//make marker draggable
-//   marker = L.marker([latitude, longitude], {
-//     draggable: true,
-//   }).addTo(map)
-//   marker.bindPopup(
-//     `<form id="pin-form">
-//        <label for="plant-name">Name:</label>
-//        <input type="text" id="plant-name" name="plant-name" autocomplete="on" required>
-//        <label for="description">Description:</label>
-//        <input type="text" id="description" name="description" autocomplete="on" required>
-//        <button type="submit">Save</button>
-//      </form>`
-//   ).openPopup();
-
-//   //Add an event listener to the form
-//   const form = document.getElementById("popup-form");
-//   form.addEventListener("submit", onPopupSubmit);
-// });
 
 // event listener for when user clicks "Share Location" button
 function onShareLocationClick() {
