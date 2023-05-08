@@ -30,7 +30,7 @@ html, body {
     line-height: 2.2;
     align-items: center;
     text-align: center;
-    padding-top: 170px;
+    padding-top: 180px;
     font-size: 75px;
   }
   
@@ -98,4 +98,13 @@ nav {
 
 footer {
   flex-shrink: 0;
+}
+
+@media screen and (max-width: 768px) {
+    
+  .main-header,
+  .btn {
+    flex-direction: column;
+    background-size: contain;
+  }
 }

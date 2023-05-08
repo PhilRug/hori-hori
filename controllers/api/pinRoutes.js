@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
 
     // Send a success response to the client
     res.status(201).json({ success: true, pin: pin });
-    console.log('success')
+    console.log('success');
   } catch (err) {
     // Handle errors and send an error response to the client
     console.error(err);
@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
   try {
     // Retrieve all Pin records from the database
     const pins = await Pin.findAll();
-    
+
     // Send the Pin records to the client
     res.render('dashboard', { pins });
   } catch (err) {

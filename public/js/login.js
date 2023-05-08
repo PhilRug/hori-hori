@@ -26,10 +26,10 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-  console.log('signup form submitted')
+  console.log('signup form submitted');
 
   if (username && email && password) {
-    console.log()
+    console.log();
     const response = await fetch('/api/users', {
       method: 'POST',
       body: JSON.stringify({ username, email, password }),
@@ -40,7 +40,7 @@ const signupFormHandler = async (event) => {
       document.location.replace('/dashboard');
     } else {
       const errorMessage = await response.text();
-        throw new Error(errorMessage);
+      throw new Error(errorMessage);
     }
   }
 };

@@ -11,3 +11,7 @@ button {
    justify-content: center;
 }
 
+h3,
+.btn-group {
+    text-align: center;
+}

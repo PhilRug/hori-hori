@@ -1,7 +1,6 @@
 const User = require('./User');
 const Pin = require('./Pin');
 
-
 //Pin-User Associations
 //a pin can only have one user associated to it
 Pin.belongsTo(User, {
