@@ -1,13 +1,20 @@
 const router = require('express').Router();
-// const { User, Plant, Pin } = require('../../models');
+const { Pin } = require('../models'); // add user withAuth
 const withAuth = require('../utils/auth');
 const bcrypt = require('bcrypt');
 
-// Route for protected dashboard page
-//ROUTE FOR TESTING PARTIAL SO IT'S NOT AUTHENTICATED, BUT CAN ADD WithAuth after
-router.get('/', (req, res) => {
-  console.log('route hit');
-  res.render('dashboard');
+router.get('/', async (req, res) => {
+  try {
+    // find all pins
+    const pinsData = await Pin.findAll();
+    const pins =  pinsData.map((pin) => pin.get({ plain: true }));
+
+    res.render('dashboard', { pins }); // pass the pins data to the dashboard view
+  
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
 });
 
 //PJ'S ROUTE CODE

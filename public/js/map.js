@@ -63,20 +63,24 @@ function initMap({ latitude, longitude }) {
   // Bind the form to the marker's popup
   marker.bindPopup(form).openPopup();
 
+  // store the latitude and longitude values in global variables
+  latitude = latitude;
+  longitude = longitude;
+
   // add event listener to form submission
-  form.addEventListener('submit', onPopupSubmit);
-}
+  form.addEventListener("submit", event => onPopupSubmit(event, latitude, longitude));
+};
 
 // function to handle form submission
-async function onPopupSubmit(event) {
+async function onPopupSubmit(event, latitude, longitude) {
   //prevent refresh
   event.preventDefault();
   const plantName = document.getElementById("plantName").value;
   const description = document.getElementById("description").value;
-  console.log(`Plant name: ${plantName}, Description: ${description}`);
+  // const lat = marker.getLatLng().lat;
+  // const lng = marker.getLatLng().lng;
 
-  // Get the current location from the map
-  const { lat, lng } = map.getCenter();
+  console.log(`Plant name: ${plantName}, Description: ${description}, Lat: ${latitude}, Lng: ${longitude}`);
 
   // Send the form data to the server
   try {
@@ -86,64 +90,29 @@ async function onPopupSubmit(event) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        plantName: plantName,
+        plant: plantName,
         description: description,
-        latitude: lat,
-        longitude: lng
+        latitude: latitude,
+        longitude: longitude
       })
     });
 
     if (!response.ok) {
       throw new Error('Failed to add pin');
     }
-  //reset form and close pop up on submit
-  //might want to show a picture instead
-  event.target.reset(); // reset the form fields
-  // Reload the pins on the map
-  await loadPins();
+
+    //SHOW PICTURE TO VERIFY PLANT?
+    
+    //reset form and close pop up on submit
+  event.target.reset();
+  
+  // FIND A WAY TO REDIRECT TO DASHBOARD, WHERE PINS WILL BE SHOWN
+
 } catch (err) {
   console.error(err);
   alert('Failed to add pin');
 }
 }
-
-// // Update the Plant Name property when the input field changes
-// form.querySelector("#plantName").addEventListener("input", function(event) {
-//   var input = event.target;
-//   marker.options.PlantName = input.value;
-// });
-
-// // Log the form input values when the form is submitted
-// form.addEventListener("submit", function(event) {
-//   event.preventDefault(); // prevent the default form submission
-//   var plantNameInput = form.querySelector("#plantName");
-//   var descriptionInput = form.querySelector("#description");
-//   console.log("Plant Name: " + plantNameInput.value);
-//   console.log("Description: " + descriptionInput.value);
-// });
-
-//add autofill or datalist element
-//image of the plant
-
-
-//make marker draggable
-//   marker = L.marker([latitude, longitude], {
-//     draggable: true,
-//   }).addTo(map)
-//   marker.bindPopup(
-//     `<form id="pin-form">
-//        <label for="plant-name">Name:</label>
-//        <input type="text" id="plant-name" name="plant-name" autocomplete="on" required>
-//        <label for="description">Description:</label>
-//        <input type="text" id="description" name="description" autocomplete="on" required>
-//        <button type="submit">Save</button>
-//      </form>`
-//   ).openPopup();
-
-//   //Add an event listener to the form
-//   const form = document.getElementById("popup-form");
-//   form.addEventListener("submit", onPopupSubmit);
-// });
 
 // event listener for when user clicks "Share Location" button
 function onShareLocationClick() {
