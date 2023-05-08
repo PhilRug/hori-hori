@@ -42,6 +42,9 @@ Pin.init(
             //     key: 'description',
             // },
         },
+        image: {
+            type: DataTypes.STRING,
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

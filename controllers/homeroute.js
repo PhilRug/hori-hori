@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Plant, Pin } = require('../models');
+const { User, Pin } = require('../models');
 const withAuth = require('../utils/auth');
 const bcrypt = require('bcrypt');
 
