@@ -25,7 +25,8 @@ To install the required dependencies, run the following command:
 use through the web terminal
     
 ## Testing
-
+![home page](public/img/home.png)
+![login page](public/img/login.png)
 
 ## Credits
 - pics of plants https://www.si.edu/stories/escape-invasives

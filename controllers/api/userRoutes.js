@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+
 const bcrypt = require('bcrypt');
 
 router.post('/', async (req, res) => {
@@ -13,6 +14,7 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+      req.session.username = userData.username;
 
       res.status(200).json(userData);
     });
@@ -44,6 +46,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+      req.session.username = userData.username;
 
       res.json({ user: userData, message: 'You are now logged in!' });
     });
@@ -60,6 +63,20 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+    // find the pin by id
+    const userData = await User.findByPk(req.params.id);
+
+    const user = userData.get({ plain: true });
+
+    res.status(200).json(user);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
   }
 });
 
