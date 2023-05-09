@@ -14,8 +14,6 @@ router.post('/', async (req, res) => {
       longitude: req.body.longitude,
       user_id: req.session.user_id
     });
-
-
     // Send a success response to the client
     res.status(201).json({ success: true, pin: pin });
     console.log('success');
