@@ -112,7 +112,8 @@ nav {
   color: var(--warm);
 }
 
-.login-title {
+.login-title,
+#dash-sum {
   text-align: center;
 }
 
@@ -121,18 +122,37 @@ footer {
 }
 
 .pins-history {
-  text-align: center;
-}
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));    
+    background-color: var(--translucent);
+    grid-auto-rows: minmax(0, 1fr);
+    grid-auto-flow: column;
+    grid-gap: 20px;
+  }
+  
+.card {
+  width: 100%;
+  height: 100%;
+    padding: 2px;
+  }
 
 .pinlist {
-  text-align: left;
-  border-radius: 5px;
-  background-color: var(--translucent);
-  list-style: none;
-  flex-wrap: wrap;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 5px;
+  list-style-type: none;
+  flex-flow: row wrap;
 }
 
+.pinlist li {
+  margin-bottom: 30px;
+}
+
+.card-text {
+  text-align: center;
+}
 a {
   font-size: larger;
   font-weight: bolder;
