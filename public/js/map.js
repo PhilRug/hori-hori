@@ -1,9 +1,9 @@
 //     const url = `https://www.mapquestapi.com/geocoding/v1/reverse?key=${apiKey}location=30.333472,-81.470448&size=600,400`;
 // const APIKey = 'j60qfJnlksnEkYHlmnduljwpArKoZxZT';
 
-const mapElement = document.querySelector('#map-element')
-let latitude;
-let longitude;
+// const mapElement = document.querySelector('#map-element');
+// let latitude;
+// let longitude;
 // let selectedOptionImage;
 
 //use GeoLocation API from JS to request user's loc
@@ -19,17 +19,17 @@ function getUserLocation() {
       }
     );
   });
-};
+}
 
 // initialize map and add marker for user's location
 let map;
 
 function initMap({ latitude, longitude }) {
-  console.log(latitude, longitude)
-  const map = L.map("map").setView([latitude, longitude], 17);
+  console.log(latitude, longitude);
+  const map = L.map('map').setView([latitude, longitude], 17);
   console.log(map);
   L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', {
-    attribution: "Map data © <a href='https://opentopomap.org/'>OpenTopoMap</a> contributors" +
+    attribution: 'Map data © <a href=\'https://opentopomap.org/\'>OpenTopoMap</a> contributors' +
       'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 25,
   }).addTo(map);
@@ -39,7 +39,7 @@ function initMap({ latitude, longitude }) {
     draggable: true,
   }).addTo(map);
 
-  var form = document.createElement("form");
+  var form = document.createElement('form');
   form.innerHTML = `
     <label for="plantName">Plant Name:</label>
     <select type="text" id="plantName" name="plantName" required autocomplete="on" list="plants">
@@ -71,28 +71,28 @@ function initMap({ latitude, longitude }) {
   // Bind the form to the marker's popup
   marker.bindPopup(form).openPopup();
 
-  setImageFromSelect("plantName", "plantImage")
+  setImageFromSelect('plantName', 'plantImage');
 
   // store the latitude and longitude values in global variables
   latitude = latitude;
   longitude = longitude;
 
   // add event listener to form submission
-  form.addEventListener("submit", event => onPopupSubmit(event, latitude, longitude));
-};
+  form.addEventListener('submit', event => onPopupSubmit(event, latitude, longitude));
+}
 
 function setImageFromSelect(selectId, imageId) {
   const selectElement = document.getElementById(selectId);
   const imageElement = document.getElementById(imageId);
 
-  selectElement.addEventListener("change", function() {
+  selectElement.addEventListener('change', function() {
     const selectedOption = selectElement.value;
-    const selectedOptionImage = selectElement.options[selectElement.selectedIndex].getAttribute('data-image')
-   
-    if (selectElement === "" ) {
-      imageElement.style.display = "none";
+    const selectedOptionImage = selectElement.options[selectElement.selectedIndex].getAttribute('data-image');
+
+    if (selectElement === '' ) {
+      imageElement.style.display = 'none';
     } else {
-      imageElement.style.display = "block"
+      imageElement.style.display = 'block';
     }
 
     imageElement.src = selectedOptionImage;
@@ -103,11 +103,11 @@ function setImageFromSelect(selectId, imageId) {
 async function onPopupSubmit(event, latitude, longitude) {
 
   event.preventDefault();
-  const plantName = document.getElementById("plantName").value;
-  const description = document.getElementById("description").value;
-  const plantImage = document.getElementById("plantImage").getAttribute("src")
- //make sure image url is being saved to json so it can regenerate with pins
-  
+  const plantName = document.getElementById('plantName').value;
+  const description = document.getElementById('description').value;
+  const plantImage = document.getElementById('plantImage').getAttribute('src');
+  //make sure image url is being saved to json so it can regenerate with pins
+
   console.log(plantImage);
   console.log(`Plant name: ${plantName}, Description: ${description}, Lat: ${latitude}, Lng: ${longitude}`);
 
@@ -134,11 +134,11 @@ async function onPopupSubmit(event, latitude, longitude) {
     }
 
     //reset form and close pop up on submit
-  event.target.reset();
-} catch (err) {
-  console.error(err);
-  alert('Failed to add pin');
-}
+    event.target.reset();
+  } catch (err) {
+    console.error(err);
+    alert('Failed to add pin');
+  }
 }
 
 // event listener for when user clicks "Share Location" button
@@ -146,14 +146,14 @@ function onShareLocationClick() {
   getUserLocation()
     .then(location => {
       initMap(location);
-      console.log("User location:", location);
+      console.log('User location:', location);
     })
     .catch(error => {
-      console.error("Error getting user location:", error);
+      console.error('Error getting user location:', error);
     });
-};
+}
 
-document.getElementById("share-location-btn").addEventListener("click", onShareLocationClick);
-document.getElementById("goBack").addEventListener("click", function() {
-  window.location.href = "/dashboard";
+document.getElementById('share-location-btn').addEventListener('click', onShareLocationClick);
+document.getElementById('goBack').addEventListener('click', function() {
+  window.location.href = '/dashboard';
 });

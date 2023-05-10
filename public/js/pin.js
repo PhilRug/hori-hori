@@ -7,7 +7,7 @@ async function displayMap(pin) {
 
     // create tile layer
     const tileLayer = L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', {
-      attribution: "Map data © <a href='https://opentopomap.org/'>OpenTopoMap</a> contributors" +
+      attribution: 'Map data © <a href=\'https://opentopomap.org/\'>OpenTopoMap</a> contributors' +
         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 30,
     });
@@ -19,18 +19,18 @@ async function displayMap(pin) {
     tileLayer.on('load', function () {
 
       //marker
-    const marker = L.marker([pin.latitude, pin.longitude]).addTo(map);
+      const marker = L.marker([pin.latitude, pin.longitude]).addTo(map);
 
-       //popup for marker
-    const popupContent = `<h3>${pin.plant}</h3>
+      //popup for marker
+      const popupContent = `<h3>${pin.plant}</h3>
     <br>
     <p>${pin.description}</p>
     <br>
     <img src="${pin.image}" style="width: 7rem; height: 9rem" alt="image of ${pin.plant}"/>`;
-    
-    const popup = L.popup().setContent(popupContent);
 
-    marker.bindPopup(popup).openPopup();
+      const popup = L.popup().setContent(popupContent);
+
+      marker.bindPopup(popup).openPopup();
     });
   } catch (error) {
     console.error(error);
@@ -47,10 +47,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   const pinResponse = await response.json();
-  console.log(pinResponse)
+  console.log(pinResponse);
   displayMap(pinResponse);
 });
 
-document.getElementById("goBack").addEventListener("click", function() {
-  window.location.href = "/dashboard";
+document.getElementById('goBack').addEventListener('click', function() {
+  window.location.href = '/dashboard';
 });
