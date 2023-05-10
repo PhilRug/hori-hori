@@ -1,13 +1,13 @@
 <div class="dashboard">
   <h2 class="welcome">Welcome to Your Dashboard {{userName}}!</h2>
   <div class="pins-history">
-    <h3>Pins History</h3>
-    <ul>
+    <p>Click the Add Pin button below to start!</p>
+    <ul class='pinlist'>
          {{#each pins as |pin| }}
       <li>
       <div class="card">
         <div class="card-body">
-          <a href="/pins/{{pin.id}}" class="btn btn-primary">{{pin.plant}}</a>
+          <a href="/pins/{{pin.id}}" class="btn btn-primary">{{pin.plant}}</a>{{format_date pin.date_created}}
           <p class="card-text">{{pin.description}}</p>
         </div>
       </div>

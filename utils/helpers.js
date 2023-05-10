@@ -1,11 +1,10 @@
+const dayjs = require('dayjs');
+
 module.exports = {
-  format_time: (date) => {
-    // add time of post
-    return date.toLocaleTimeString();
-  },
+
   format_date: (date) => {
-    // add date to post
-    return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/
-    ${new Date(date).getFullYear()}`;
-  },
+    const current = dayjs(date);
+    return current.format('MMM/DD/YYYY');
+  }
+
 };
