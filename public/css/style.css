@@ -1,6 +1,7 @@
 :root {
     --user-color: #0b2a92;
     --background: #92a143;
+    --translucent: rgba(146, 161, 67, 0.5);
     --text: #010101;
     --banner: 
 }
@@ -48,9 +49,7 @@ html, body {
 
 #banner {  
   background-position: center;
-  width: 100%;
- 
-  
+  width: 100%;  
 }
 
 nav {
@@ -81,8 +80,9 @@ nav {
 
 .welcome {
   text-align: center;
-  padding-top: 170px;
+  padding-top: 100px;
   font-size: 30px;
+  background-color: var(--translucent);
 }
 
 .login-title {
@@ -102,6 +102,15 @@ footer {
 
 .pins-history {
   text-align: center;
+}
+
+.pinlist {
+  text-align: left;
+  border-radius: 5px;
+  background-color: var(--translucent);
+  list-style: none;
+  flex-wrap: wrap;
+  
 }
 
 @media screen and (max-width: 768px) {
