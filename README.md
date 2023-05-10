@@ -27,9 +27,11 @@ use through the web terminal
 ## Testing
 ![home page](public/img/home.png)
 ![login page](public/img/login.png)
+![dashboard](public/img/user-dashboard.png)
+
 
 ## Credits
-- pics of plants https://www.si.edu/stories/escape-invasives
+- 
 - plant banner https://www.pngwing.com/en/free-png-bueci/download
     
 ## Questions
