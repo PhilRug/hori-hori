@@ -12,10 +12,9 @@ router.post('/', async (req, res) => {
       description: req.body.description,
       latitude: req.body.latitude,
       longitude: req.body.longitude,
+      image: req.body.image,
       user_id: req.session.user_id
     });
-
-
     // Send a success response to the client
     res.status(201).json({ success: true, pin: pin });
     console.log('success');
