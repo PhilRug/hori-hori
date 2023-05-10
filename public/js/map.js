@@ -101,7 +101,7 @@ function setImageFromSelect(selectId, imageId) {
 
 // function to handle form submission
 async function onPopupSubmit(event, latitude, longitude) {
-  
+
   event.preventDefault();
   const plantName = document.getElementById("plantName").value;
   const description = document.getElementById("description").value;
@@ -126,8 +126,10 @@ async function onPopupSubmit(event, latitude, longitude) {
         image: plantImage
       })
     });
-
-    if (!response.ok) {
+    if (response.ok) {
+      // Redirect to the dashboard page if the submission is successful
+      window.location.href = '/dashboard';
+    } else {
       throw new Error('Failed to add pin');
     }
 

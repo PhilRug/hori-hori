@@ -17,5 +17,5 @@ function addPin() {
   window.location.href = '/map';
 }
 document
-  .querySelector('.add')
+  .querySelector('#add-pin')
   .addEventListener('click', addPin);
