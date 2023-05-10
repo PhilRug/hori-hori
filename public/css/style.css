@@ -6,6 +6,7 @@
     --visited: #f4f2c7;
     --warm: #4a2511;
     --yellow: #f4bd1a;
+    --glow: #02ec88;
 }
 
 html, body {
@@ -75,6 +76,14 @@ nav {
 .btn:hover {
   background-color: var(--btn-color);
   color: var(--yellow);
+  box-shadow: inset 0px 0px 8px 
+  var(--glow), 
+  0 0 15px 
+  var(--glow);
+}
+.code-card .card-header {
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
 }
 
 .btn:active {
