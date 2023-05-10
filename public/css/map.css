@@ -2,16 +2,38 @@ button {
     margin-bottom: 2rem;
 }
 
-#map {
-    background-image: none;
-    height: 25rem;
-    width: 40rem;
-   margin: 3rem;
-   display: flex;
-   justify-content: center;
+form {
+height: 15rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
 
 h3,
 .btn-group {
     text-align: center;
+}
+
+.hidden {
+    display: none;
+  }
+
+#map {
+    background-image: none;
+    height: 30rem;
+    width: 50rem;
+   margin: 3rem;
+   display: flex;
+   justify-content: center;
+}
+
+#description {
+    margin-top: 1rem;
+    height: 3rem;
+}
+
+#plantImage {
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
 }
