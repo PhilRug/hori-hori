@@ -22,10 +22,8 @@ async function displayMap(pin) {
       const marker = L.marker([pin.latitude, pin.longitude]).addTo(map);
 
       //popup for marker
-      const popupContent = `<h3>${pin.plant}</h3>
-    <br>
+      const popupContent = `<h4>${pin.plant}</h4>
     <p>${pin.description}</p>
-    <br>
     <img src="${pin.image}" style="width: 7rem; height: 9rem" alt="image of ${pin.plant}"/>`;
 
       const popup = L.popup().setContent(popupContent);

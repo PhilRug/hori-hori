@@ -1,8 +1,10 @@
 # Hori-Hori
+
 ## License
 
 undefined
 ## Description
+
 Hori-Hori is an application that helps track and manage the spread of invasive plant species. The app uses geolocation to identify and report invasive plants in a user's area.
 
 With this app, users can easily report and share information about invasive plant sightings, which can help local authorities and organizations to take action to control and manage the spread of these plants. The app also provides a database of invasive plant species and information on how to properly identify them, making it easier for users to recognize and report them.
@@ -22,7 +24,7 @@ To install the required dependencies, run the following command:
 ``` npm install ```
 
 ## Usage
-use through the web terminal
+Use through the web terminal. It will also be available through your mobile device's appstore eventually. 
     
 ## Testing
 ![home page](public/img/home.png)
@@ -31,8 +33,8 @@ use through the web terminal
 
 
 ## Credits
-- 
-- plant banner https://www.pngwing.com/en/free-png-bueci/download
+- (Leaflet.js)[https://leafletjs.com/]
+- (plant banner)[https://www.pngwing.com/en/free-png-bueci/download]
     
 ## Questions
 If you have any questions you can contact us at:
