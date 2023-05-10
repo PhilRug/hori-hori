@@ -50,3 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   console.log(pinResponse)
   displayMap(pinResponse);
 });
+
+document.getElementById("goBack").addEventListener("click", function() {
+  window.location.href = "/dashboard";
+});
