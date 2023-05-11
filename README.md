@@ -30,7 +30,7 @@ Use through the web terminal. It will also be available through your mobile devi
 ![home page](public/img/home.png)
 ![login page](public/img/login.png)
 ![dashboard](public/img/user-dashboard.png)
-
+![pin page](public/img/pin.png)
 
 ## Credits
 - (Leaflet.js)[https://leafletjs.com/]
