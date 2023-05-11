@@ -25,6 +25,8 @@ To install the required dependencies, run the following command:
 
 ## Usage
 Use through the web terminal. It will also be available through your mobile device's appstore eventually. 
+
+app can be found at https://vast-reaches-42188.herokuapp.com/
     
 ## Testing
 ![home page](public/img/home.png)
